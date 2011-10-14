@@ -1,0 +1,89 @@
+body {
+	margin: 0px;
+	background: #ececec;
+	font-family: Helvetica Neue, Helvetica, Arial;
+	font-size: 14px;
+	line-height: 22px;
+	color: #333;
+}
+		
+#main {
+	background: #fff;
+	margin: 30px auto 30px auto;
+	padding: 20px;
+	width: 900px;
+	
+	box-shadow: 0 0 5px #ccc;
+}
+
+#mytabs {
+	margin-top: 30px;
+}
+
+pre {
+	background: #f9f9f9;
+	padding: 10px;
+	overflow: auto;
+	overflow-Y: hidden;
+}
+
+a {
+	background: #92C415;
+	padding: 4px 8px;
+	color: #fff;
+	text-decoration: none;
+}
+	a.r {
+		border-radius: 5px;
+	}
+a:hover {
+	background: #000;
+}
+
+table {
+	border-spacing: 0;
+	border-color: #ddd;
+}
+th {
+	background: #eee;
+}
+th, td {
+	padding: 10px;
+	border-color: #ddd;
+}
+
+/* ____________________ tinytabs plugin styles ____________________ */
+
+.tinytabs ul.tabs {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 10px;
+}
+	.tinytabs .tabs li {
+		float: left;
+		margin: 0 3px 0 0;
+	}
+	.tinytabs .tabs a {
+		background: #ddd;
+		display: block;
+		padding: 6px 12px;
+		text-decoration: none;
+		color: #666;
+		font-weight: bold;
+		
+		border-radius: 3px 3px 0 0;
+	}
+	.tinytabs .section {
+		background: #ececec;
+		
+		overflow: hidden;
+		padding: 15px;
+		clear: both;
+
+		border-radius: 3px;
+	}
+	.tinytabs .sel a {
+		background: #ececec;
+		color: #333;
+		text-shadow: none;
+	}

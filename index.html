@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en">
+<head>
+	<title>tinytabs - a tiny tabbing plugin for jQuery</title>
+	<link rel="stylesheet" type="text/css" href="tinytabs.css"/>
+
+	<meta name="description" content="tinytabs is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface." />
+	<meta name="keywords" content="jquery tabs, jquery simple tabs, jquery tabbed interface, jquery tabbed ui, jquery div tabs, jquery create tabs" />
+
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="tinytabs.min.js"></script>
+</head>
+<body>
+
+<div id="main">
+	<h1>tinytabs plugin for jQuery</h1>
+	<p>
+		<a href="http://github.com/knadh/tinytabs" class="r">GitHub page</a> <a class="r" href="https://github.com/knadh/tinytabs/zipball/master">Download ZIP</a>
+	</p>
+
+<div id="mytabs">
+	<div class="section" id="example">
+		<p>
+			<strong>tinytabs</strong> is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface. 
+			If Javascript is not enabled, it degrades nicely too.
+		</p>
+
+		<h3 class="title">Example code</h3>
+		<h3>HTML</h3>
+<pre>&lt;div id=&quot;mytabs&quot;&gt;
+	&lt;div class=&quot;section&quot; id=&quot;music&quot;&gt;
+		&lt;h3 class=&quot;title&quot;&gt;Music&lt;/h3&gt;
+		Content here
+	&lt;/div&gt;
+	&lt;div class=&quot;section&quot; id=&quot;videos&quot;&gt;
+		&lt;h3 class=&quot;title&quot;&gt;Videos&lt;/h3&gt;
+		Content
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+		<h3>Javascript</h3>
+<pre>$(document).ready(function() {
+	$('#mytabs').tinytabs();
+	
+	// or
+	
+	$('#mytabs').tinytabs({		// optional options
+		anchor: false,
+		hide_title: false
+	});
+});</pre>
+	</div>
+
+	<div class="section" id="options">
+		<h3 class="title">Options</h3>
+		<table border="1">
+			<tbody>
+				<tr>
+					<td>anchor</td>
+					<td>
+						<strong><em>true</em> (default) or <em>false</em></strong><br />
+						If enabled, when a tab is clicked, it's id is set in url's hashtag so that the tab
+						is retained on page reloads. Also enables linking to a tab directly.<br />
+						Eg: http://kailashnadh.name/tinytabs#tab-example
+					</td>
+				</tr>
+				<tr>
+					<td>hide_title</td>
+					<td>
+						<strong><em>true</em> (default) or <em>false</em></strong><br />
+						Hide the title element within section elements.
+					</td>
+				</tr>
+				<tr>
+					<td>section_class</td>
+					<td>
+						Section element's class. Default is <strong><em>section</em></strong>.
+					</td>
+				</tr>
+				<tr>
+					<td>tabs_class</td>
+					<td>
+						Tab (ul) container's class. Default is <strong><em>tabs</em></strong>.
+					</td>
+				</tr>
+				<tr>
+					<td>tab_class</td>
+					<td>
+						Individual tab's (li) class. Default is <strong><em>tab</em></strong>.
+					</td>
+				</tr>
+				<tr>
+					<td>title_class</td>
+					<td>
+						Title element's tag. Default is <strong><em>title</em></strong>.
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="section" id="video">
+		<h3 class="title">Video</h3>
+			<iframe width="100%" height="515" src="http://www.youtube.com/embed/EVG80vqVfSA" frameborder="0"></iframe>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+<!--
+
+$(document).ready(function() {
+	$('#mytabs').tinytabs({
+		anchor: true
+	});
+});
+
+//-->
+</script>
+
+	<p><a href="http://kailashnadh.name" class="r">Kailash Nadh</a></p>
+
+</div><!-- main //-->
+
+</body>
+</html>
