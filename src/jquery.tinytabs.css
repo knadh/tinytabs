@@ -3,12 +3,13 @@
 	padding: 0;
 	margin: 0 0 0 10px;
 }
-.tinytabs ul.tabs br.clear {
+.tinytabs ul.tabs li.clear {
   height: 0px;
   line-height: 0px;
   padding: 0px;
   margin: 0px;
-  clear:both;
+  clear: both;
+  float: none;
 }
 .tinytabs .tabs li {
 	float: left;
