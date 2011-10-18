@@ -2,7 +2,9 @@
 tinytabs is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface.
 
 Kailash Nadh, October 2011
+
 License:	MIT License
+
 Documentation and Demo: http://kailashnadh.name/code/tinytabs
 
 ## Example
