@@ -59,6 +59,7 @@
 					)
 				);
 			});
+			$(tabs).append($('<li>').addClass('clear'));
 
 			// is anchoring enabled?
 			var href = document.location.hash.replace('#tab-', '');
