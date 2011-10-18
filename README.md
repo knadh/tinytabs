@@ -1,12 +1,23 @@
 # tinytabs
-tinytabs is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface. 
+tinytabs is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface.
 
 Kailash Nadh, October 2011
 License:	MIT License
 Documentation and Demo: http://kailashnadh.name/code/tinytabs
 
 ## Example
-### HTML
+
+### HTML - Setup
+<pre>
+&lt;head&gt;
+	&lt;script type="text/javascript" src="lib/jquery.min.js"&gt;&lt;/script&gt;
+
+	&lt;link rel="stylesheet" type="text/css" href="src/jquery.tinytabs.css"/&gt;
+	&lt;script type="text/javascript" src="src/jquery.tinytabs.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+
+### HTML - Usage
 <pre>
 &lt;div id=&quot;mytabs&quot;&gt;
 	&lt;div class=&quot;section&quot; id=&quot;music&quot;&gt;
@@ -20,13 +31,14 @@ Documentation and Demo: http://kailashnadh.name/code/tinytabs
 	&lt;/div&gt;
 &lt;/div&gt;
 </pre>
+
 ### Javascript
 <pre>
 $(document).ready(function() {
 	$('#mytabs').tinytabs();
-	
+
 	// or
-	
+
 	$('#mytabs').tinytabs({		// optional options
 		anchor: false,
 		hide_title: false

@@ -1,0 +1,40 @@
+.tinytabs ul.tabs {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 10px;
+}
+.tinytabs ul.tabs br.clear {
+  height: 0px;
+  line-height: 0px;
+  padding: 0px;
+  margin: 0px;
+  clear:both;
+}
+.tinytabs .tabs li {
+	float: left;
+	margin: 0 3px 0 0;
+}
+.tinytabs .tabs a {
+	background: #ddd;
+	display: block;
+	padding: 6px 12px;
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+
+	border-radius: 3px 3px 0 0;
+}
+.tinytabs .section {
+	background: #ececec;
+
+	overflow: hidden;
+	padding: 15px;
+	clear: both;
+
+	border-radius: 3px;
+}
+.tinytabs .sel a {
+	background: #ececec;
+	color: #333;
+	text-shadow: none;
+}
