@@ -3,13 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en">
 <head>
 	<title>tinytabs - a tiny tabbing plugin for jQuery</title>
-	<link rel="stylesheet" type="text/css" href="tinytabs.css"/>
 
 	<meta name="description" content="tinytabs is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface." />
 	<meta name="keywords" content="jquery tabs, jquery simple tabs, jquery tabbed interface, jquery tabbed ui, jquery div tabs, jquery create tabs" />
 
-	<script type="text/javascript" src="jquery.min.js"></script>
-	<script type="text/javascript" src="tinytabs.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css"/>
+	<link rel="stylesheet" type="text/css" href="src/jquery.tinytabs.css"/>
+
+	<script type="text/javascript" src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="src/jquery.tinytabs.min.js"></script>
 </head>
 <body>
 
@@ -22,7 +24,7 @@
 <div id="mytabs">
 	<div class="section" id="example">
 		<p>
-			<strong>tinytabs</strong> is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface. 
+			<strong>tinytabs</strong> is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface.
 			If Javascript is not enabled, it degrades nicely too.
 		</p>
 
@@ -41,9 +43,9 @@
 		<h3>Javascript</h3>
 <pre>$(document).ready(function() {
 	$('#mytabs').tinytabs();
-	
+
 	// or
-	
+
 	$('#mytabs').tinytabs({		// optional options
 		anchor: false,
 		hide_title: false
