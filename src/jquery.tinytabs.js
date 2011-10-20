@@ -1,6 +1,6 @@
 /*
 	Kailash Nadh (http://kailashnadh.name)
-	
+
 	tinytabs
 	October 2011
 	A tiny tabbed interface plugin for jQuery
@@ -26,7 +26,7 @@
 		if(new_options) {
 			$.extend(options, new_options);
 		}
-		
+
 		create();
 
 		// ______________________ private methods
@@ -36,15 +36,15 @@
 			// create tabs container
 			tabs = $('<ul>').attr('class', options.tabs_class);
 			container.addClass('tinytabs').prepend(tabs);
-			
+
 			// create tabs
 			container.find(' .' + options.section_class).each(function() {
 				var section = $(this),
-					id = $(this).attr('id'),
-					title = $(this).find('.' + options.title_class + ':first');
+					id = section.attr('id'),
+					title = getTitle(section);
 
 				if(!id) return true;
-				
+
 				sections[id] = section;
 
 				// hide title?
@@ -69,7 +69,12 @@
 					activate(id);
 					break;
 				}
-			}			
+			}
+		}
+
+		// get the title in a tab
+		function getTitle($section) {
+			return $section.find('.' + options.title_class + ':first')
 		}
 
 		// activate a tab
@@ -82,9 +87,14 @@
 
 			reset();
 
-			tabs.find('.tab-' + id).addClass('sel');
-			sections[id].show();
-			
+			var newTab = tabs.find('.tab-' + id).addClass('sel'),
+					newSection = sections[id],
+					title = getTitle($(newSection)).html();
+
+			options.before && options.before(newTab, title);
+			newSection.show();
+			options.after && options.after(newTab, title);
+
 			if(options.anchor) {
 				document.location.href = '#tab-' + id;
 			}
@@ -99,7 +109,7 @@
 				this.hide();
 			});
 		};
-	
+
 		return this;
 	}
 })(jQuery);
