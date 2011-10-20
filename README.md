@@ -7,7 +7,7 @@ License:	MIT License
 
 Documentation and Demo: http://kailashnadh.name/code/tinytabs
 
-Thanks to Sasha Depold's (http://depold.com) contributions
+Thanks to [Sascha Depold's](http://depold.com) contributions
 
 ## Example
 
