@@ -72,9 +72,9 @@
 			}
 		}
 
-		// get the title in a tab
-		function getTitle($section) {
-			return $section.find('.' + options.title_class + ':first')
+		// get the title element of a section
+		function getTitle(section) {
+			return section.find('.' + options.title_class + ':first');
 		}
 
 		// activate a tab
@@ -87,13 +87,14 @@
 
 			reset();
 
-			var newTab = tabs.find('.tab-' + id).addClass('sel'),
-					newSection = sections[id],
-					title = getTitle($(newSection)).html();
+			var new_tab = tabs.find('.tab-' + id).addClass('sel'),
+					new_section = sections[id],
+					title = getTitle(new_section).html();
 
-			options.before && options.before(newTab, title);
-			newSection.show();
-			options.after && options.after(newTab, title);
+			// before and after callbacks
+			options.before && options.before(new_tab, title);
+			new_section.show();
+			options.after && options.after(new_tab, title);
 
 			if(options.anchor) {
 				document.location.href = '#tab-' + id;
