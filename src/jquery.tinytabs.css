@@ -10,6 +10,7 @@
   margin: 0px;
   clear: both;
   float: none;
+  font-size: 0px;
 }
 .tinytabs .tabs li {
 	float: left;
