@@ -1,4 +1,9 @@
 # tinytabs
+Forked from [Kailash Nadh's](http://kailashnadh.name/code/tinytabs)
+
+Adds a vertical tab option, along with the ability to customize the parent class for the same
+
+
 tinytabs is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface.
 
 Kailash Nadh, October 2011
