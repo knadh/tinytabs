@@ -17,7 +17,9 @@
 			section_class: 'section',
 			tabs_class: 'tabs',
 			tab_class: 'tab',
-			title_class: 'title'
+			title_class: 'title',
+			vertical: false,
+			tabs_vertical_class: 'tab-vertical'
 		};
 		var tabs = null,
 			container = this,
@@ -75,6 +77,11 @@
 		// get the title element of a section
 		function getTitle(section) {
 			return section.find('.' + options.title_class + ':first');
+		}
+
+		// vertical tabs option
+		if(options.vertical) {
+			container.addClass(options.tabs_vertical_class);
 		}
 
 		// activate a tab

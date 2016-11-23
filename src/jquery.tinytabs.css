@@ -40,3 +40,28 @@
 	color: #333;
 	text-shadow: none;
 }
+
+/* Vertical Tabs */
+
+.tab-vertical { 
+  display: flex;
+}
+
+.tab-vertical ul.tabs {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+}
+
+.tab-vertical .tabs li {
+  margin-right: 0;
+}
+
+.tab-vertical .tabs a {
+  border-radius: 0;
+}
+
+.tab-vertical .section {
+  flex: 1;
+}
+

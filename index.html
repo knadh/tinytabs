@@ -98,6 +98,18 @@
 					</td>
 				</tr>
 				<tr>
+					<td>vertical</td>
+					<td>
+						Allows for vertical tabs. Default is <strong><em>false</em></strong>.
+					</td>
+				</tr>
+				<tr>
+					<td>tabs_vertical_class</td>
+					<td>
+						Sets the class for vertical tabs on the parent. Default is <strong><em>tab-vertical</em></strong>.
+					</td>
+				</tr>
+				<tr>
 					<td>before</td>
 					<td>
 						A function that gets evaluated before a tab is activated. Default is <strong><em>nothing</em></strong>.<br/>
@@ -114,19 +126,44 @@
 			</tbody>
 		</table>
 	</div>
+
 	<div class="section" id="video">
 		<h3 class="title">Video</h3>
 			<iframe width="100%" height="515" src="http://www.youtube.com/embed/EVG80vqVfSA" frameborder="0"></iframe>
 	</div>
 </div>
 
+<h3>Vertical Tabs</h3>
+<pre>
+$(document).ready(function() {
+	$('#mytabsvertical').tinytabs({		// optional options
+		anchor: true,
+		vertical: true
+	});
+});
+</pre>
+<div id="mytabsvertical">
+  <div class="section" id="music-vertical">
+    <div class="title">Music</div>
+    Content here
+  </div>
+  <div class="section" id="videos-vertical">
+    <div class="title">Videos</div>
+    Content
+  </div>
+</div>
 
 <script type="text/javascript">
 <!--
 
 $(document).ready(function() {
 	$('#mytabs').tinytabs({
-		anchor: true
+		anchor: true,
+	});
+
+	$('#mytabsvertical').tinytabs({
+		anchor: true,
+		vertical: true
 	});
 });
 
