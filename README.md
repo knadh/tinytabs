@@ -99,6 +99,18 @@ $(document).ready(function() {
 			</td>
 		</tr>
 		<tr>
+			<td>vertical</td>
+			<td>
+				Allows for vertical tabs. Default is <strong><em>false</em></strong>.
+			</td>
+		</tr>
+		<tr>
+			<td>tabs_vertical_class</td>
+			<td>
+				Sets the class for vertical tabs on the parent. Default is <strong><em>tab-vertical</em></strong>.
+			</td>
+		</tr>
+		<tr>
 			<td>before</td>
 			<td>
 				A function that gets evaluated before a tab is activated. Default is <strong><em>nothing</em></strong>.<br/>
