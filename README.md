@@ -1,5 +1,5 @@
 # tinytabs
-Forked from [Kailash Nadh's](http://kailashnadh.name/code/tinytabs)
+Forked from [Kailash Nadh's](http://kailashnadh.name/code/tinytabs) lightweight tabs plugin.
 
 Adds a vertical tab option, along with the ability to customize the parent class for the same
 
