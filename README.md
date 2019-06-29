@@ -1,111 +1,57 @@
 # tinytabs
-tinytabs is a tiny (1.1 KB minified) tabbing plugin for jQuery. All you need is a few layers in a container layer, and bam, tabbed interface.
+tinytabs is a tiny (1.3 KB minified) Javascript tabbing
+library. Zero dependencies. All you need is a few layers in a container layer, and
+bam, tabbed interface. If Javascript is not enabled, it degrades
+nicely too.
 
-Kailash Nadh, October 2011
+Documentation and Demo: https://nadh.in/code/tinytabs
 
-License:	MIT License
-
-Documentation and Demo: http://kailashnadh.name/code/tinytabs
-
-Thanks to [Sascha Depold's](http://depold.com) contributions
+![image](https://user-images.githubusercontent.com/547147/60380775-8f1f9a00-9a68-11e9-9ab1-f88d32dd74d9.png)
 
 ## Example
 
-### HTML - Setup
-<pre>
-&lt;head&gt;
-	&lt;script type="text/javascript" src="lib/jquery.min.js"&gt;&lt;/script&gt;
+### HTML
+```html
+<!-- Include the CSS file in <head> //-->
+<link rel="stylesheet" type="text/css" href="tinytabs.css" />
 
-	&lt;link rel="stylesheet" type="text/css" href="src/jquery.tinytabs.css"/&gt;
-	&lt;script type="text/javascript" src="src/jquery.tinytabs.min.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-</pre>
-
-### HTML - Usage
-<pre>
-&lt;div id=&quot;mytabs&quot;&gt;
-	&lt;div class=&quot;section&quot; id=&quot;music&quot;&gt;
-		&lt;h3 class=&quot;title&quot;&gt;Music&lt;/h3&gt;
+<!-- Content to tab //-->
+<div id="mytabs">
+	<div class="section" id="music">
+		<h3 class="title">Music</h3>
 		Content here
-	&lt;/div&gt;
-
-	&lt;div class=&quot;section&quot; id=&quot;videos&quot;&gt;
-		&lt;h3 class=&quot;title&quot;&gt;Videos&lt;/h3&gt;
+	</div>
+	<div class="section" id="videos">
+		<h3 class="title">Videos</h3>
 		Content
-	&lt;/div&gt;
-&lt;/div&gt;
-</pre>
+	</div>
+</div>
 
-### Javascript
-<pre>
-$(document).ready(function() {
-	$('#mytabs').tinytabs();
-
-	// or
-
-	$('#mytabs').tinytabs({		// optional options
-		anchor: false,
-		hide_title: false
-	});
+<script>
+// With options.
+document.addEventListener("DOMContentLoaded", function(e) { 
+  tinytabs(document.querySelector("#mytabs"), {
+    anchor: true,
+    hideTitle: false
+  });
 });
-</pre>
+
+// Without options.
+document.addEventListener("DOMContentLoaded", function(e) { 
+  tinytabs(document.querySelector("#mytabs"));
+})
+</script>
+```
 
 ## Options
-<table border="1">
-	<tbody>
-		<tr>
-			<td>anchor</td>
-			<td>
-				<strong><em>true</em> (default) or <em>false</em></strong><br />
-				If enabled, when a tab is clicked, it's id is set in url's hashtag so that the tab
-				is retained on page reloads. Also enables linking to a tab directly.<br />
-				Eg: http://kailashnadh.name/tinytabs#tab-example
-			</td>
-		</tr>
-		<tr>
-			<td>hide_title</td>
-			<td>
-				<strong><em>true</em> (default) or <em>false</em></strong><br />
-				Hide the title element within section elements.
-			</td>
-		</tr>
-		<tr>
-			<td>section_class</td>
-			<td>
-				Section element's class. Default is <strong><em>section</em></strong>.
-			</td>
-		</tr>
-		<tr>
-			<td>tabs_class</td>
-			<td>
-				Tab (ul) container's class. Default is <strong><em>tabs</em></strong>.
-			</td>
-		</tr>
-		<tr>
-			<td>tab_class</td>
-			<td>
-				Individual tab's (li) class. Default is <strong><em>tab</em></strong>.
-			</td>
-		</tr>
-		<tr>
-			<td>title_class</td>
-			<td>
-				Title element's tag. Default is <strong><em>title</em></strong>.
-			</td>
-		</tr>
-		<tr>
-			<td>before</td>
-			<td>
-				A function that gets evaluated before a tab is activated. Default is <strong><em>nothing</em></strong>.<br/>
-				If a function is defined, the first parameter will be the tab (DOM-element), the second one is the title of the tab.
-			</td>
-		</tr>
-		<tr>
-			<td>after</td>
-			<td>
-				A function that gets evaluated after a tab has been activated. Default is <strong><em>nothing</em></strong>.<br/>
-				If a function is defined, the first parameter will be the tab (DOM-element), the second one is the title of the tab.
-			</td>
-		</tr>
-	</tbody>
-</table>
+| anchor       | true (default) or false. If enabled, when a tab is clicked, it's id is set in url's fragment so that the tab is retained on page reloads. Also enables linking to a tab directly. Eg: `http://nadh.in/code/tinytabs#tab-example`  |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| hideTitle    | true (default) or falseHide the title element within section elements.                                                                                                                                                          |
+| sectionClass | Section element's class. Default is section.                                                                                                                                                                                    |
+| tabsClass    | Tab (ul) container's class. Default is tabs.                                                                                                                                                                                    |
+| tabClass     | Individual tab's (li) class. Default is tab.                                                                                                                                                                                    |
+| titleClass   | Title element's tag. Default is title.                                                                                                                                                                                          |
+| before       | function(id, tab). Callback function that gets evaluated before a tab is activated. The first arg is the id of the tab and the second is the DOM element of the tab.                                                            |
+| after        | function(id, tab). Callback function that gets evaluated after a tab is activated. The first arg is the id of the tab and the second is the DOM element of the tab.                                                             |
+
+MIT License.
