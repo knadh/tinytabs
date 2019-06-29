@@ -1,0 +1,9 @@
+{
+  "name": "tinytabs",
+  "version": "2.0.0",
+  "description": "A super tiny Javascript library for rendering tabbed UIs.",
+  "main": "index.js",
+  "repository": "https://github.com/knadh/tinytabs.git",
+  "author": "Kailash Nadh <kailash@nadh.in>",
+  "license": "MIT"
+}
