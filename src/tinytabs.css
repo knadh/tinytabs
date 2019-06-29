@@ -1,0 +1,30 @@
+.tinytabs .tabs {
+	margin-left: 15px;
+	display: flex;
+	flex-flow: row wrap;
+}
+.tinytabs .tabs .tab {
+	margin: 0 3px 0 0;
+}
+.tinytabs .tabs .tab {
+	background: #e1e1e1;
+	display: block;
+	padding: 6px 15px;
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+
+	border-radius: 3px 3px 0 0;
+}
+.tinytabs .section {
+	background: #f1f1f1;
+	overflow: hidden;
+	padding: 15px;
+	clear: both;
+	border-radius: 3px;
+}
+.tinytabs .tab.sel {
+	background: #f1f1f1;
+	color: #333;
+	text-shadow: none;
+}
