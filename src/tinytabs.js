@@ -26,9 +26,6 @@
     function create() {
       tabs = document.createElement("nav");
       tabs.classList.add(otps.tabsClass);
-      if (typeof container === "string") {
-        container = document.querySelector("#"+container)
-      }
       container.classList.add("tinytabs");
       container.prepend(tabs);
 
