@@ -46,9 +46,6 @@
         span.classList.add("close");
         span.setAttribute("data-id", "close-" + id);
         span.innerHTML = "×";
-        if (!otps.closable) {
-          span.style.display = "none";
-        }
 
         // Create the tab handle.
         var a = document.createElement("a");
@@ -56,22 +53,27 @@
         a.setAttribute("href", "#tab-" + id);
         a.setAttribute("data-id", id);
         a.innerHTML = title.innerHTML;
-        a.appendChild(span);
+        if (otps.closable) {
+          a.appendChild(span);
+        }
 
         span.onclick = function(event) {
-          // callback on close
-          otps.onClose && otps.onClose(id);
 
           // get selected tab
-          var getDataId = this.getAttribute("data-id").split("-")[1]
-          var currentTab = document.querySelector(".tab-"+getDataId);
-          var nextTab = currentTab.nextElementSibling;
-          var prevTab = currentTab.previousElementSibling;
+          var getDataId, currentTab,
+            nextTab, prevTab, section;
+          getDataId = this.getAttribute("data-id").split("-")[1];
+          currentTab = document.querySelector(".tab-"+getDataId);
+          nextTab = currentTab.nextElementSibling;
+          prevTab = currentTab.previousElementSibling;
 
           // remove current tab and section container
           currentTab.parentNode.removeChild(currentTab);
-          var section = document.querySelector("#"+getDataId);
+          section = document.querySelector("#"+getDataId);
           section.parentNode.removeChild(section);
+
+          // callback on close
+          otps.onClose && otps.onClose(id);
 
           // choose next tab on closing current tab if not choose prev tab
           if (nextTab) {
