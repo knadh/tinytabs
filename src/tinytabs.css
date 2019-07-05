@@ -3,17 +3,17 @@
 	display: flex;
 	flex-flow: row wrap;
 }
-.tinytabs .tabs .tab {
-	margin: 0 3px 0 0;
+.tinytabs .tabs .tab .close {
+	padding-left: 5px;
 }
 .tinytabs .tabs .tab {
+	margin: 0 3px 0 0;
 	background: #e1e1e1;
 	display: block;
 	padding: 6px 15px;
 	text-decoration: none;
 	color: #666;
 	font-weight: bold;
-
 	border-radius: 3px 3px 0 0;
 }
 .tinytabs .section {

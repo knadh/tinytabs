@@ -25,14 +25,14 @@
 
       <div id="mytabs">
         <div class="section" id="example">
+
+          <h3 class="title">Example code</h3>
           <p>
             <strong>tinytabs</strong> is a tiny (1.3 KB minified) Javascript tabbing
             library. Zero dependencies. All you need is a few layers in a container layer, and
             bam, tabbed interface. If Javascript is not enabled, it degrades
             nicely too.
           </p>
-
-          <h3 class="title">Example code</h3>
           <h3>HTML</h3>
           <p>Include the CSS file</p>
           <pre>&lt;link rel="stylesheet" type="text/css" href="tinytabs.css" /&gt;</pre>
@@ -52,7 +52,7 @@
           <h3>Javascript</h3>
 <pre>
 // With options.
-document.addEventListener("DOMContentLoaded", function(e) { 
+document.addEventListener("DOMContentLoaded", function(e) {
   tinytabs(document.querySelector("#mytabs"), {
     anchor: true,
     hideTitle: false
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
 });
 
 // Without options.
-document.addEventListener("DOMContentLoaded", function(e) { 
+document.addEventListener("DOMContentLoaded", function(e) {
   tinytabs(document.querySelector("#mytabs"));
 });
 </pre
@@ -122,17 +122,24 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 </td>
               </tr>
               <tr>
-                <td>before</td>
+                <td>onBefore</td>
                 <td>
                   <code>function(id, tab)</code>. Callback function that gets evaluated before a tab is activated.
                   The first arg is the id of the tab and the second is the DOM element of the tab.
                 </td>
               </tr>
               <tr>
-                <td>after</td>
+                <td>onAfter</td>
                 <td>
                   <code>function(id, tab)</code>. Callback function that gets evaluated after a tab is activated.
                   The first arg is the id of the tab and the second is the DOM element of the tab.
+                </td>
+              </tr>
+              <tr>
+                <td>onClose</td>
+                <td>
+                  <code>function(id)</code>. Callback function that gets evaluated while closing the tab.
+                  The argument is the id of the tab.
                 </td>
               </tr>
             </tbody>
@@ -150,9 +157,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
       </div>
 
       <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function(e) { 
+        document.addEventListener("DOMContentLoaded", function(e) {
           tinytabs(document.querySelector("#mytabs"), {
-            anchor: true
+            anchor: true,
+            hideTitle: false,
+            closable: true,
+            onClose: function (id) {
+              console.log(id)
+            }
           });
         });
       </script>
