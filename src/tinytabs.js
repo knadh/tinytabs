@@ -8,7 +8,7 @@
 
 (function() {
   var tinytabs = function(container, newOpts) {
-    var otps = {
+    var opts = {
       anchor: true,
       hideTitle: true,
       sectionClass: "section",
@@ -18,28 +18,28 @@
       selClass: "sel"
     };
     var tabs = [], sections = {};
-        otps = Object.assign(otps, newOpts);
+        opts = Object.assign(opts, newOpts);
 
     create();
 
     // Initialize.
     function create() {
       tabs = document.createElement("nav");
-      tabs.classList.add(otps.tabsClass);
+      tabs.classList.add(opts.tabsClass);
       container.classList.add("tinytabs");
       container.prepend(tabs);
 
       // Create individual tabs from sections.
-      var all = container.querySelectorAll(" ." + otps.sectionClass);
+      var all = container.querySelectorAll(" ." + opts.sectionClass);
       Array.from(all).map(section => {
         var id = section.getAttribute("id"),
-            title = section.querySelector("." + otps.titleClass);
+            title = section.querySelector("." + opts.titleClass);
 
         // Tab section has to have an ID.
         if (!id) return true;
 
         sections[id] = section;
-        otps.hideTitle ? hide(title) : null;
+        opts.hideTitle ? hide(title) : null;
 
         // Create close element inside tab.
         var span = document.createElement("span");
@@ -49,31 +49,29 @@
 
         // Create the tab handle.
         var a = document.createElement("a");
-        a.classList.add(otps.tabClass, "tab-" + id);
+        a.classList.add(opts.tabClass, "tab-" + id);
         a.setAttribute("href", "#tab-" + id);
         a.setAttribute("data-id", id);
         a.innerHTML = title.innerHTML;
-        if (otps.closable) {
+        if (opts.closable) {
           a.appendChild(span);
         }
 
         span.onclick = function(event) {
 
           // get selected tab
-          var getDataId, currentTab,
-            nextTab, prevTab, section;
-          getDataId = this.getAttribute("data-id").split("-")[1];
-          currentTab = document.querySelector(".tab-"+getDataId);
-          nextTab = currentTab.nextElementSibling;
-          prevTab = currentTab.previousElementSibling;
+          var getDataId = this.getAttribute("data-id").split("-")[1],
+              currentTab = document.querySelector(".tab-"+getDataId),
+              nextTab = currentTab.nextElementSibling,
+              prevTab = currentTab.previousElementSibling,
+              section = document.querySelector("#"+getDataId);
 
           // remove current tab and section container
           currentTab.parentNode.removeChild(currentTab);
-          section = document.querySelector("#"+getDataId);
           section.parentNode.removeChild(section);
 
           // callback on close
-          otps.onClose && otps.onClose(id);
+          opts.onClose && opts.onClose(id);
 
           // choose next tab on closing current tab if not choose prev tab
           if (nextTab) {
@@ -91,7 +89,7 @@
 
         a.onclick = function() {
           activate(this.getAttribute("data-id"));
-          return otps.anchor;
+          return opts.anchor;
         };
 
         // Add the tab to the tabs list.
@@ -100,7 +98,7 @@
 
       // Is anchoring enabled?
       var href = document.location.hash.replace("#tab-", "");
-      if (otps.anchor && href) {
+      if (opts.anchor && href) {
         activate(href);
       } else {
         for (var id in sections) {
@@ -130,14 +128,14 @@
 
       var newTab = tabs.querySelector(".tab-" + id);
       if (newTab) {
-        newTab.classList.add(otps.selClass);
+        newTab.classList.add(opts.selClass);
       }
 
       // before and after callbacks
-      otps.onBefore && otps.onBefore(id, newTab);
+      opts.onBefore && opts.onBefore(id, newTab);
       show(sections[id]);
-      otps.onAfter && otps.onAfter(id, newTab);
-      if (otps.anchor) {
+      opts.onAfter && opts.onAfter(id, newTab);
+      if (opts.anchor) {
         document.location.href = "#tab-" + id;
       }
       return true;
@@ -145,7 +143,7 @@
 
     // Reset all tabs.
     function reset() {
-      Array.from(tabs.querySelectorAll("." + otps.tabClass)).map(e => e.classList.remove(otps.selClass));
+      Array.from(tabs.querySelectorAll("." + opts.tabClass)).map(e => e.classList.remove(opts.selClass));
       Object.values(sections).map(e => hide(e));
     }
 
