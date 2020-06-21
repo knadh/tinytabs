@@ -21,7 +21,7 @@ Documentation and Demo: https://nadh.in/code/tinytabs
 		<h3 class="title">Music</h3>
 		Content here
 	</div>
-	<div class="section" id="videos">
+	<div class="section" id="videos" default>
 		<h3 class="title">Videos</h3>
 		Content
 	</div>

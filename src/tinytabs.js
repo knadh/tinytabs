@@ -18,7 +18,8 @@
       selClass: "sel"
     };
     var tabs = [], sections = {};
-        opts = Object.assign(opts, newOpts);
+        opts = Object.assign(opts, newOpts),
+        defaultTab = null;
 
     create();
 
@@ -31,12 +32,16 @@
 
       // Create individual tabs from sections.
       var all = container.querySelectorAll(" ." + opts.sectionClass);
-      Array.from(all).map(section => {
+      Array.from(all).forEach((section, i) => {
         var id = section.getAttribute("id"),
-            title = section.querySelector("." + opts.titleClass);
+            title = section.querySelector("." + opts.titleClass),
+            isDefault = section.hasAttribute("default");
 
         // Tab section has to have an ID.
         if (!id) return true;
+
+        // Select a default tab
+        if (i === 0 || isDefault) defaultTab = id;
 
         sections[id] = section;
         opts.hideTitle ? hide(title) : null;
@@ -101,10 +106,7 @@
       if (opts.anchor && href) {
         activate(href);
       } else {
-        for (var id in sections) {
-          activate(id);
-          break;
-        }
+        activate(defaultTab);
       }
     }
 
