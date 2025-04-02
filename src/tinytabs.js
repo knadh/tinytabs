@@ -138,7 +138,7 @@
       show(sections[id]);
       opts.onAfter && opts.onAfter(id, newTab);
       if (opts.anchor) {
-        document.location.href = "#tab-" + id;
+        history.replaceState(null, null, "#tab-" + id);
       }
       return true;
     }
