@@ -1,9 +1,9 @@
 # tinytabs
 tinytabs is a tiny (~750 bytes minified+gzip) Javascript tabbing library with zero dependencies. I turns HTML markup into a tabbed interface.
 
-[**View demo**](https://knadh.github.io/tinytabs/demo)
+[**View demo**](https://knadh.github.io/tinytabs)
 
-[![image](https://github.com/user-attachments/assets/e0284d2d-2169-4074-a03d-f5ca722e96e0)](https://knadh.github.io/tinytabs/demo)
+[![image](https://github.com/user-attachments/assets/e0284d2d-2169-4074-a03d-f5ca722e96e0)](https://knadh.github.io/tinytabs)
 
 ## Usage
 
