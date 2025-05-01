@@ -1,62 +1,57 @@
 # tinytabs
-tinytabs is a tiny (1.3 KB minified) Javascript tabbing
-library. Zero dependencies. All you need is a few layers in a container layer, and
-bam, tabbed interface. If Javascript is not enabled, it degrades
-nicely too.
+tinytabs is a tiny (~750 bytes minified+gzip) Javascript tabbing library with zero dependencies. I turns HTML markup into a tabbed interface.
 
-Documentation and Demo: https://nadh.in/code/tinytabs
+[View demo](https://knadh.github.io/tinytabs)
 
 ![image](https://user-images.githubusercontent.com/547147/60380775-8f1f9a00-9a68-11e9-9ab1-f88d32dd74d9.png)
 
-## Example
+## Usage
 
-### HTML
+```shell
+npm install @knadh/tinytabs
+```
+
+### Example
 ```html
 <!-- Include the CSS file in <head> //-->
 <link rel="stylesheet" type="text/css" href="tinytabs.css" />
 
-<!-- Content to tab //-->
+<!-- Content to turn into tabbed UI //-->
 <div id="mytabs">
-	<div class="section" id="music">
-		<h3 class="title">Music</h3>
+	<section class="tab-section" id="music" data-name="Music">
+		<h3>Music</h3>
 		Content here
-	</div>
-	<div class="section" id="videos" default>
-		<h3 class="title">Videos</h3>
+	</section>
+	<section class="tab-section" id="videos" data-name="Videos">
+		<h3>Videos</h3>
 		Content
-	</div>
+	</section>
 </div>
 
-<script>
-// With options.
-document.addEventListener("DOMContentLoaded", function(e) { 
-  tinytabs(document.querySelector("#mytabs"), {
-    anchor: true,
-    hideTitle: false,
-    closable: true,
-    onClose: function (id) {
-      console.log(id)
-    }
-  });
-});
+<script type="module">
+  import tinytabs from '@knadh/tinytabs';
 
-// Without options.
-document.addEventListener("DOMContentLoaded", function(e) { 
-  tinytabs(document.querySelector("#mytabs"));
-})
+  // Initialize tinytabs.
+  tinytabs(document.querySelector("#mytabs"), {});
 </script>
 ```
 
 ## Options
-| anchor       | true (default) or false. If enabled, when a tab is clicked, it's id is set in url's fragment so that the tab is retained on page reloads. Also enables linking to a tab directly. Eg: `http://nadh.in/code/tinytabs#tab-example`  |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| hideTitle    | true (default) or falseHide the title element within section elements.                                                                                                                                                          |
-| sectionClass | Section element's class. Default is section.                                                                                                                                                                                    |
-| tabsClass    | Tab (ul) container's class. Default is tabs.                                                                                                                                                                                    |
-| tabClass     | Individual tab's (li) class. Default is tab.                                                                                                                                                                                    |
-| titleClass   | Title element's tag. Default is title.                                                                                                                                                                                          |
-| onBefore       | function(id, tab). Callback function that gets evaluated before a tab is activated. The first arg is the id of the tab and the second is the DOM element of the tab.                                                            |
-| onAfter        | function(id, tab). Callback function that gets evaluated after a tab is activated. The first arg is the id of the tab and the second is the DOM element of the tab.                                                             |
-| onClose        | function(id). Callback function that gets evaluated while closing the tab. The argument is the id of the tab.                                                             |                                          
+
+The second argument to `tinytabs()` is an optional configuration object.
+
+
+| Option       | Description                                                                                             | Default        |
+| :----------- | :------------------------------------------------------------------------------------------------------ | :------------- |
+| `anchor`     | If `true`, clicking a tab updates the URL fragment (`#tab-id`) allowing direct linking and persistence. | `true`         |
+| `history`    | If `true` (and `anchor` is `true`), enables browser Back/Forward button navigation between tabs.        | `true`         |
+| `sectionClass` | CSS class applied to each `section` element that represents tab content.                              | `'tab-section'`|
+| `tabsClass`  | CSS class applied to the tabs container.                                                                | `'tabs'`       |
+| `tabClass`   | CSS class applied to each individual tab.                                                               | `'tab'`        |
+| `selClass`   | CSS class applied to the currently selected tab.                                                        | `'sel'`        |
+| `onClose`    | Callback function executed when a tab is closed. Receives the `id` of the closed tab.                   | `null`         |
+| `onBefore`   | Callback function executed just before a tab becomes active. Receives the `id` of the tab.              | `null`         |
+| `onAfter`    | Callback function executed right after a tab becomes active. Receives the `id` of the tab.              | `null`         |
+
 
 MIT License.

@@ -1,9 +1,28 @@
 {
-  "name": "tinytabs",
-  "version": "2.0.0",
+  "name": "@knadh/tinytabs",
+  "version": "3.0.0",
   "description": "A super tiny Javascript library for rendering tabbed UIs.",
-  "main": "index.js",
-  "repository": "https://github.com/knadh/tinytabs.git",
-  "author": "Kailash Nadh <kailash@nadh.in>",
-  "license": "MIT"
+  "main": "tinytabs.js",
+  "files": [
+    "tinytabs.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knadh/tinytabs.git"
+  },
+  "keywords": [
+    "input",
+    "richtext",
+    "highlight",
+    "autocomplete"
+  ],
+  "author": "Kailash Nadh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knadh/tinytabs/issues"
+  },
+  "homepage": "https://github.com/knadh/tinytabs#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
